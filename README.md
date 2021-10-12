@@ -1,11 +1,36 @@
-# medicalAppointmentApp
-This is a project of mobile development on React Native from the specialization program of IBM & CaC.
+# <b> Medical Appointment Manager </b>
 
-📖 <b> About </b> medicalAppointment is a medical appointment manager in which you can add appointments(patient, doctor, telephone, date, time, symptom) and manage them.
+This is a project from the specialization program on mobile development of IBM & CaC.
 
-🛠️ <b> Built with </b> React Native
+## 📖 <b> About </b>
 
-📷 <b> Preview </b> 
+medicalAppointment is a medical appointment manager in which you can add appointments(patient, doctor, telephone, date, time, symptom) and manage them.
 
-<img src="assets/previewProject.gif">
+## 🛠️ <b> Technologies </b>
 
+This project was created with(languages and libraries used):
+
+- [React Native](https://reactnative.dev/)
+- [React Native Modal Datetime Picker](https://github.com/mmazzarolo/react-native-modal-datetime-picker)
+- [Momentjs](https://momentjs.com/)
+
+## 📷 <b> Preview </b>
+
+<img src="assets/previewProject.gif" width="720" height="405">
+
+## 🚀 <b> Setup / Launch</b>
+
+### 🔧 <b>Local Installation</b>
+
+```
+git clone https://github.com/mgmaxi/medicalAppointment
+cd ./medicalAppointment
+npm install
+```
+
+### ⚙️ <b>Run it</b>
+
+```
+Android: "npx react-native run-android"
+IOS: "npx react-native run-ios"
+```
