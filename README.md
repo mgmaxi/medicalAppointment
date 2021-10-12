@@ -16,7 +16,7 @@ This project was created with(languages and libraries used):
 
 ## 📷 <b> Preview </b>
 
-<img src="assets/previewProject.gif" width="720" height="405">
+<img src="assets/previewProject.gif">
 
 ## 🚀 <b> Setup / Launch</b>
 
