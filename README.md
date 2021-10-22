@@ -13,6 +13,7 @@ This project was created with(languages and libraries used):
 - [React Native](https://reactnative.dev/)
 - [React Native Modal Datetime Picker](https://github.com/mmazzarolo/react-native-modal-datetime-picker)
 - [Momentjs](https://momentjs.com/)
+- [AsyncStorage](https://github.com/react-native-async-storage/async-storage)
 
 ## 📷 <b> Preview </b>
 

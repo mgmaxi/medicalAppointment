@@ -1,14 +1,15 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
-  StyleSheet,
   Text,
   View,
-  FlatList,
-  TouchableHighlight,
-  TouchableWithoutFeedback,
   Keyboard,
   Platform,
+  FlatList,
+  StyleSheet,
+  TouchableHighlight,
+  TouchableWithoutFeedback,
 } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import Appointment from './components/Appointment';
 import Form from './components/Form';
 
@@ -16,11 +17,35 @@ const App = () => {
   const [showForm, setShowForm] = useState(false);
   const [appointments, setAppointments] = useState([]);
 
+  // AsyncStorage
+  // Get Appointments of Storage
+  useEffect(() => {
+    const getAppointmentsStorage = async () => {
+      try {
+        const dataStorage = await AsyncStorage.getItem('appointmentsStorage');
+        setAppointments(JSON.parse(dataStorage));
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getAppointmentsStorage();
+  }, []);
+
+  // Save Appointments on Storage
+  const saveAppointmentsStorage = async appointmentsJSON => {
+    try {
+      await AsyncStorage.setItem('appointmentsStorage', appointmentsJSON);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   //fn deletePatient from state
   const deletePatient = id => {
-    setAppointments(actualAppointments => {
-      return actualAppointments.filter(item => item.id !== id);
-    });
+    const appointmentsFilter = appointments.filter(item => item.id !== id);
+    setAppointments(appointmentsFilter);
+    // Delete Patient/Appointment from Storage
+    saveAppointmentsStorage(JSON.stringify(appointmentsFilter));
   };
 
   //fn show/hide Form
@@ -56,6 +81,7 @@ const App = () => {
                 appointments={appointments}
                 setAppointments={setAppointments}
                 setShowForm={setShowForm}
+                saveAppointmentsStorage={saveAppointmentsStorage}
               />
             </>
           ) : (

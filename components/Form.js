@@ -14,7 +14,12 @@ import moment from 'moment';
 // import 'moment/locale/es'; for spanish date
 import shortid from 'shortid';
 
-const Form = ({appointments, setAppointments, setShowForm}) => {
+const Form = ({
+  appointments,
+  setAppointments,
+  setShowForm,
+  saveAppointmentsStorage,
+}) => {
   // States for Inputs
   const [patient, setPatient] = useState('');
   const [doctor, setDoctor] = useState('');
@@ -79,6 +84,9 @@ const Form = ({appointments, setAppointments, setShowForm}) => {
 
     // Set the appointment on the State
     setAppointments(newAppointment);
+
+    // Save appointments on storage
+    saveAppointmentsStorage(JSON.stringify(newAppointment));
 
     // Close Form
     setShowForm(false);
